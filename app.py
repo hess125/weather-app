@@ -16,7 +16,7 @@ PASSWORD = "8J0tJZ9Fbi5SPjnn2g4M"
 # Home endpoint
 @app.route("/", methods=["GET"])
 def home():
-    return {"message": "Weather API backend running!"}
+    return {"message": "App backend is running!"}
 
 #Weather endpoint
 @app.route("/weather", methods=["GET"])
@@ -25,7 +25,7 @@ def weather():
     date = request.args.get("date", "now")
 
     if not city:
-        return {"error": "Please provide a city parameter, e.g., ?city=Dubai"}, 400
+        return {"error": "Please provide a city parameter, e.g., Dubai"}, 400
 
     # Get coordinates for the city
     loc = requests.get(
@@ -62,7 +62,7 @@ def weather():
 
     # Activity suggestions
     activities = []
-    note = "Activities based on forecast — actual weather may vary."
+    note = "Activities based on forecast — actual weather conditions may vary."
 
     if precipitation > 0.0:
         activities.append("Stay indoors — visit a museum or read a book.")
