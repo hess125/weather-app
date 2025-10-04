@@ -46,7 +46,7 @@ def weather():
         try:
             date_obj = datetime.fromisoformat(date.replace("Z", ""))
         except ValueError:
-            return {"error": "Invalid date format. Use ISO 8601, e.g., 2023-10-04T14:00:00Z"}, 400
+            return {"error": "Invalid date format. Use format: 2023-10-04T14:00:00Z"}, 400
 
     date_str = date_obj.strftime("%Y-%m-%dT%H:%M:%SZ")
 
