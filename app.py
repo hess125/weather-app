@@ -28,16 +28,16 @@ def weather():
         return {"error": "Please provide a city parameter, e.g., ?city=Dubai"}, 400
 
     # Get coordinates for the city
-    geo = requests.get(
+    loc = requests.get(
         f"https://nominatim.openstreetmap.org/search?q={city}&format=json&limit=1",
         headers={"User-Agent": "WeatherHackathon/1.0"}
     ).json()
 
-    if not geo:
+    if not loc:
         return {"error": f"City '{city}' not found"}, 404
 
-    lat = geo[0]["lat"]
-    lon = geo[0]["lon"]
+    lat = loc[0]["lat"]
+    lon = loc[0]["lon"]
 
     # Get datetime
     if date == "now":
